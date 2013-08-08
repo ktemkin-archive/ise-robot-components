@@ -1,0 +1,16 @@
+NET switches(7) LOC = "P85" ;
+NET switches(6) LOC = "P83" ;
+NET switches(5) LOC = "P78" ;
+NET switches(4) LOC = "P71" ;
+NET switches(3) LOC = "P68" ;
+NET switches(2) LOC = "P66" ;
+NET switches(1) LOC = "P63" ;
+NET switches(0) LOC = "P61" ;
+NET LED(4) LOC = "P36" ;
+NET LED(3) LOC = "P34" ;
+NET LED(2) LOC = "P32" ;
+NET LED(1) LOC = "P25" ;
+NET LED(0) LOC = "P22" ; 
+NET CLK LOC = "P89";
+NET SENSOR LOC = "P91";
+NET reset LOC = "P61" ;
