@@ -66,4 +66,16 @@ _xmsgs/
 #schematic files
 *.jhd
 *.vhf
+*.vhi
 sch2HdlBatchFile
+*.schlog
+
+#simulation files
+*.log
+*.cmd
+*.xmsgs
+isim/
+*.grf
+*.wdb
+*.exe
+xilinxsim.ini

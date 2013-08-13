@@ -15,27 +15,18 @@
         <signal name="charged" />
         <signal name="Q2" />
         <signal name="Q3" />
-        <signal name="sensor" />
         <signal name="CLK" />
         <signal name="reset" />
         <signal name="XLXN_1" />
         <signal name="Q0" />
-        <signal name="XLXN_111" />
         <signal name="XLXN_120" />
         <signal name="XLXN_113" />
         <signal name="COUNT(15:0)" />
-        <signal name="XLXN_140(15:0)" />
         <signal name="XLXN_139(15:0)" />
-        <signal name="XLXN_146(15:0)" />
-        <signal name="XLXN_147(15:0)" />
-        <signal name="XLXN_148(15:0)" />
-        <signal name="XLXN_153" />
-        <signal name="XLXN_155(15:0)" />
-        <signal name="REFLECTIVITY(15:0)" />
-        <signal name="REFLECTIVITY(13)" />
-        <signal name="REFLECTIVITY(12)" />
-        <signal name="REFLECTIVITY(11)" />
-        <signal name="REFLECTIVITY(10)" />
+        <signal name="reflectivity(15:0)" />
+        <signal name="reflectivity(11)" />
+        <signal name="reflectivity(10)" />
+        <signal name="reflectivity(12)" />
         <signal name="W" />
         <signal name="X" />
         <signal name="Y" />
@@ -44,12 +35,15 @@
         <signal name="XLXN_176" />
         <signal name="WHITE" />
         <signal name="COMP_SENS(15:0)" />
-        <signal name="COMP_SENS(13:6)" />
+        <signal name="COMP_SENS(10:3)" />
         <signal name="SENSITIVITY(7:0)" />
-        <signal name="COMP_SENS(15:14)" />
-        <signal name="COMP_SENS(5:0)" />
+        <signal name="COMP_SENS(2:0)" />
         <signal name="sensor_in" />
-        <port polarity="BiDirectional" name="sensor" />
+        <signal name="sensor" />
+        <signal name="COMP_SENS(15:11)" />
+        <signal name="reflectivity(9)" />
+        <signal name="count_max" />
+        <signal name="a_wire" />
         <port polarity="Input" name="CLK" />
         <port polarity="Input" name="reset" />
         <port polarity="Output" name="W" />
@@ -58,6 +52,7 @@
         <port polarity="Output" name="Z" />
         <port polarity="Output" name="WHITE" />
         <port polarity="Input" name="SENSITIVITY(7:0)" />
+        <port polarity="BiDirectional" name="sensor" />
         <blockdef name="fds">
             <timestamp>2000-1-1T10:10:10</timestamp>
             <line x2="80" y1="-112" y2="-128" x1="64" />
@@ -216,6 +211,42 @@
             <line x2="64" y1="-32" y2="-64" x1="128" />
             <line x2="64" y1="-128" y2="-128" x1="0" />
         </blockdef>
+        <blockdef name="nor2">
+            <timestamp>2000-1-1T10:10:10</timestamp>
+            <line x2="64" y1="-64" y2="-64" x1="0" />
+            <line x2="64" y1="-128" y2="-128" x1="0" />
+            <line x2="216" y1="-96" y2="-96" x1="256" />
+            <circle r="12" cx="204" cy="-96" />
+            <arc ex="192" ey="-96" sx="112" sy="-48" r="88" cx="116" cy="-136" />
+            <arc ex="112" ey="-144" sx="192" sy="-96" r="88" cx="116" cy="-56" />
+            <arc ex="48" ey="-144" sx="48" sy="-48" r="56" cx="16" cy="-96" />
+            <line x2="48" y1="-48" y2="-48" x1="112" />
+            <line x2="48" y1="-144" y2="-144" x1="112" />
+        </blockdef>
+        <blockdef name="and3b1">
+            <timestamp>2000-1-1T10:10:10</timestamp>
+            <line x2="40" y1="-64" y2="-64" x1="0" />
+            <circle r="12" cx="52" cy="-64" />
+            <line x2="64" y1="-128" y2="-128" x1="0" />
+            <line x2="64" y1="-192" y2="-192" x1="0" />
+            <line x2="192" y1="-128" y2="-128" x1="256" />
+            <line x2="64" y1="-64" y2="-192" x1="64" />
+            <arc ex="144" ey="-176" sx="144" sy="-80" r="48" cx="144" cy="-128" />
+            <line x2="64" y1="-80" y2="-80" x1="144" />
+            <line x2="144" y1="-176" y2="-176" x1="64" />
+        </blockdef>
+        <blockdef name="or2b1">
+            <timestamp>2000-1-1T10:10:10</timestamp>
+            <line x2="32" y1="-64" y2="-64" x1="0" />
+            <circle r="12" cx="44" cy="-64" />
+            <line x2="64" y1="-128" y2="-128" x1="0" />
+            <line x2="192" y1="-96" y2="-96" x1="256" />
+            <line x2="48" y1="-48" y2="-48" x1="112" />
+            <arc ex="112" ey="-144" sx="192" sy="-96" r="88" cx="116" cy="-56" />
+            <line x2="48" y1="-144" y2="-144" x1="112" />
+            <arc ex="48" ey="-144" sx="48" sy="-48" r="56" cx="16" cy="-96" />
+            <arc ex="192" ey="-96" sx="112" sy="-48" r="88" cx="116" cy="-136" />
+        </blockdef>
         <block symbolname="or2" name="XLXI_20">
             <blockpin signalname="XLXN_33" name="I0" />
             <blockpin signalname="Q0" name="I1" />
@@ -235,16 +266,6 @@
             <blockpin signalname="XLXN_36" name="I0" />
             <blockpin signalname="Q2" name="I1" />
             <blockpin signalname="XLXN_35" name="O" />
-        </block>
-        <block symbolname="and2" name="XLXI_28">
-            <blockpin signalname="sensor_in" name="I0" />
-            <blockpin signalname="Q3" name="I1" />
-            <blockpin signalname="XLXN_36" name="O" />
-        </block>
-        <block symbolname="and2b1" name="XLXI_8">
-            <blockpin signalname="sensor_in" name="I0" />
-            <blockpin signalname="Q3" name="I1" />
-            <blockpin signalname="XLXN_1" name="O" />
         </block>
         <block symbolname="fds" name="XLXI_7">
             <blockpin signalname="CLK" name="C" />
@@ -285,10 +306,10 @@
             <blockpin signalname="XLXN_113" name="R" />
             <blockpin name="CEO" />
             <blockpin signalname="COUNT(15:0)" name="Q(15:0)" />
-            <blockpin name="TC" />
+            <blockpin signalname="count_max" name="TC" />
         </block>
         <block symbolname="constant" name="XLXI_65">
-            <attr value="0500" name="CValue">
+            <attr value="0300" name="CValue">
                 <trait delete="all:1 sym:0" />
                 <trait editname="all:1 sch:0" />
                 <trait valuetype="BitVector 32 Hexadecimal" />
@@ -305,53 +326,69 @@
             <blockpin signalname="Q0" name="CE" />
             <blockpin signalname="COUNT(15:0)" name="D(15:0)" />
             <blockpin signalname="reset" name="R" />
-            <blockpin signalname="REFLECTIVITY(15:0)" name="Q(15:0)" />
+            <blockpin signalname="reflectivity(15:0)" name="Q(15:0)" />
         </block>
         <block symbolname="buf" name="XLXI_69">
-            <blockpin signalname="REFLECTIVITY(13)" name="I" />
+            <blockpin signalname="reflectivity(12)" name="I" />
             <blockpin signalname="W" name="O" />
         </block>
         <block symbolname="buf" name="XLXI_72">
-            <blockpin signalname="REFLECTIVITY(12)" name="I" />
+            <blockpin signalname="reflectivity(11)" name="I" />
             <blockpin signalname="X" name="O" />
         </block>
         <block symbolname="buf" name="XLXI_73">
-            <blockpin signalname="REFLECTIVITY(11)" name="I" />
+            <blockpin signalname="reflectivity(10)" name="I" />
             <blockpin signalname="Y" name="O" />
         </block>
         <block symbolname="buf" name="XLXI_74">
-            <blockpin signalname="REFLECTIVITY(10)" name="I" />
+            <blockpin signalname="reflectivity(9)" name="I" />
             <blockpin signalname="Z" name="O" />
-        </block>
-        <block symbolname="or2" name="XLXI_81">
-            <blockpin signalname="Q1" name="I0" />
-            <blockpin signalname="Q0" name="I1" />
-            <blockpin signalname="XLXN_173" name="O" />
         </block>
         <block symbolname="vcc" name="XLXI_82">
             <blockpin signalname="XLXN_176" name="P" />
         </block>
         <block symbolname="compm16" name="XLXI_84">
             <blockpin signalname="COMP_SENS(15:0)" name="A(15:0)" />
-            <blockpin signalname="REFLECTIVITY(15:0)" name="B(15:0)" />
+            <blockpin signalname="reflectivity(15:0)" name="B(15:0)" />
             <blockpin signalname="WHITE" name="GT" />
             <blockpin name="LT" />
         </block>
         <block symbolname="buf" name="BUF(7:0)">
             <blockpin signalname="SENSITIVITY(7:0)" name="I" />
-            <blockpin signalname="COMP_SENS(13:6)" name="O" />
+            <blockpin signalname="COMP_SENS(10:3)" name="O" />
         </block>
-        <block symbolname="gnd" name="GND1(5:0)">
-            <blockpin signalname="COMP_SENS(5:0)" name="G" />
-        </block>
-        <block symbolname="gnd" name="GND1(15:14)">
-            <blockpin signalname="COMP_SENS(15:14)" name="G" />
+        <block symbolname="gnd" name="GND1(2:0)">
+            <blockpin signalname="COMP_SENS(2:0)" name="G" />
         </block>
         <block symbolname="iobuf" name="XLXI_95">
             <blockpin signalname="XLXN_176" name="I" />
             <blockpin signalname="sensor" name="IO" />
             <blockpin signalname="sensor_in" name="O" />
             <blockpin signalname="XLXN_173" name="T" />
+        </block>
+        <block symbolname="nor2" name="XLXI_98">
+            <blockpin signalname="Q1" name="I0" />
+            <blockpin signalname="Q0" name="I1" />
+            <blockpin signalname="XLXN_173" name="O" />
+        </block>
+        <block symbolname="gnd" name="GND2(15:11)">
+            <blockpin signalname="COMP_SENS(15:11)" name="G" />
+        </block>
+        <block symbolname="and3b1" name="XLXI_100">
+            <blockpin signalname="count_max" name="I0" />
+            <blockpin signalname="sensor_in" name="I1" />
+            <blockpin signalname="Q3" name="I2" />
+            <blockpin signalname="XLXN_36" name="O" />
+        </block>
+        <block symbolname="and2" name="XLXI_105">
+            <blockpin signalname="a_wire" name="I0" />
+            <blockpin signalname="Q3" name="I1" />
+            <blockpin signalname="XLXN_1" name="O" />
+        </block>
+        <block symbolname="or2b1" name="XLXI_106">
+            <blockpin signalname="sensor_in" name="I0" />
+            <blockpin signalname="count_max" name="I1" />
+            <blockpin signalname="a_wire" name="O" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -374,7 +411,6 @@
         <branch name="XLXN_36">
             <wire x2="528" y1="1568" y2="1568" x1="496" />
         </branch>
-        <instance x="240" y="1664" name="XLXI_28" orien="R0" />
         <branch name="Q0">
             <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="496" y="624" type="branch" />
             <wire x2="528" y1="624" y2="624" x1="496" />
@@ -399,14 +435,6 @@
             <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="496" y="1504" type="branch" />
             <wire x2="528" y1="1504" y2="1504" x1="496" />
         </branch>
-        <branch name="Q3">
-            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="192" y="1536" type="branch" />
-            <wire x2="240" y1="1536" y2="1536" x1="192" />
-        </branch>
-        <branch name="sensor_in">
-            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="192" y="1600" type="branch" />
-            <wire x2="240" y1="1600" y2="1600" x1="192" />
-        </branch>
         <branch name="CLK">
             <wire x2="816" y1="784" y2="784" x1="784" />
         </branch>
@@ -422,14 +450,13 @@
         <branch name="reset">
             <wire x2="816" y1="1328" y2="1328" x1="784" />
         </branch>
-        <instance x="496" y="352" name="XLXI_8" orien="R0" />
         <branch name="Q3">
             <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="416" y="224" type="branch" />
             <wire x2="496" y1="224" y2="224" x1="416" />
         </branch>
-        <branch name="sensor_in">
-            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="416" y="288" type="branch" />
-            <wire x2="496" y1="288" y2="288" x1="416" />
+        <branch name="a_wire">
+            <wire x2="480" y1="288" y2="288" x1="448" />
+            <wire x2="496" y1="288" y2="288" x1="480" />
         </branch>
         <branch name="XLXN_1">
             <wire x2="816" y1="256" y2="256" x1="752" />
@@ -501,10 +528,10 @@
             <wire x2="2080" y1="912" y2="912" x1="1808" />
             <wire x2="1808" y1="912" y2="1520" x1="1808" />
             <wire x2="2080" y1="1520" y2="1520" x1="1808" />
-            <wire x2="2624" y1="656" y2="656" x1="1808" />
-            <wire x2="2624" y1="256" y2="256" x1="2464" />
-            <wire x2="2768" y1="256" y2="256" x1="2624" />
-            <wire x2="2624" y1="256" y2="656" x1="2624" />
+            <wire x2="2704" y1="656" y2="656" x1="1808" />
+            <wire x2="2704" y1="256" y2="256" x1="2464" />
+            <wire x2="2768" y1="256" y2="256" x1="2704" />
+            <wire x2="2704" y1="256" y2="656" x1="2704" />
         </branch>
         <instance x="1904" y="1072" name="XLXI_65" orien="R0">
         </instance>
@@ -530,7 +557,7 @@
         </branch>
         <iomarker fontsize="28" x="2048" y="1744" name="reset" orien="R180" />
         <bustap x2="2704" y1="1536" y2="1536" x1="2608" />
-        <branch name="REFLECTIVITY(15:0)">
+        <branch name="reflectivity(15:0)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="2528" y="1520" type="branch" />
             <wire x2="2528" y1="1520" y2="1520" x1="2464" />
             <wire x2="2608" y1="1520" y2="1520" x1="2528" />
@@ -543,24 +570,24 @@
         <bustap x2="2704" y1="1696" y2="1696" x1="2608" />
         <bustap x2="2704" y1="1616" y2="1616" x1="2608" />
         <instance x="2960" y="1568" name="XLXI_69" orien="R0" />
-        <branch name="REFLECTIVITY(13)">
+        <branch name="reflectivity(12)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="2816" y="1536" type="branch" />
             <wire x2="2816" y1="1536" y2="1536" x1="2704" />
             <wire x2="2960" y1="1536" y2="1536" x1="2816" />
         </branch>
         <instance x="2960" y="1648" name="XLXI_72" orien="R0" />
         <instance x="2960" y="1728" name="XLXI_73" orien="R0" />
-        <branch name="REFLECTIVITY(12)">
+        <branch name="reflectivity(11)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="2816" y="1616" type="branch" />
             <wire x2="2816" y1="1616" y2="1616" x1="2704" />
             <wire x2="2960" y1="1616" y2="1616" x1="2816" />
         </branch>
-        <branch name="REFLECTIVITY(11)">
+        <branch name="reflectivity(10)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="2816" y="1696" type="branch" />
             <wire x2="2816" y1="1696" y2="1696" x1="2704" />
             <wire x2="2960" y1="1696" y2="1696" x1="2816" />
         </branch>
-        <branch name="REFLECTIVITY(10)">
+        <branch name="reflectivity(9)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="2816" y="1776" type="branch" />
             <wire x2="2816" y1="1776" y2="1776" x1="2704" />
             <wire x2="2960" y1="1776" y2="1776" x1="2816" />
@@ -582,13 +609,9 @@
             <wire x2="3216" y1="1776" y2="1776" x1="3184" />
         </branch>
         <iomarker fontsize="28" x="3216" y="1776" name="Z" orien="R0" />
-        <branch name="sensor">
-            <wire x2="3264" y1="2496" y2="2496" x1="3168" />
-        </branch>
         <branch name="XLXN_173">
             <wire x2="2944" y1="2432" y2="2432" x1="2848" />
         </branch>
-        <instance x="2592" y="2528" name="XLXI_81" orien="R0" />
         <branch name="Q0">
             <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="2544" y="2400" type="branch" />
             <wire x2="2592" y1="2400" y2="2400" x1="2544" />
@@ -603,7 +626,7 @@
         <instance x="2912" y="2560" name="XLXI_82" orien="R270" />
         <iomarker fontsize="28" x="3264" y="2496" name="sensor" orien="R0" />
         <instance x="2080" y="2352" name="XLXI_84" orien="R0" />
-        <branch name="REFLECTIVITY(15:0)">
+        <branch name="reflectivity(15:0)">
             <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="1968" y="2224" type="branch" />
             <wire x2="2080" y1="2224" y2="2224" x1="1968" />
         </branch>
@@ -615,35 +638,69 @@
         <text style="fontsize:64;fontname:Arial" x="1020" y="2624">Controller</text>
         <text style="fontsize:64;fontname:Arial" x="1436" y="2624">Datapath</text>
         <branch name="COMP_SENS(15:0)">
-            <wire x2="1856" y1="1712" y2="1776" x1="1856" />
-            <wire x2="1856" y1="1776" y2="1840" x1="1856" />
+            <wire x2="1856" y1="1712" y2="1760" x1="1856" />
+            <wire x2="1856" y1="1760" y2="1840" x1="1856" />
             <wire x2="1856" y1="1840" y2="1936" x1="1856" />
             <wire x2="1856" y1="1936" y2="2032" x1="1856" />
             <wire x2="2080" y1="2032" y2="2032" x1="1856" />
         </branch>
-        <bustap x2="1760" y1="1776" y2="1776" x1="1856" />
         <bustap x2="1760" y1="1840" y2="1840" x1="1856" />
         <bustap x2="1760" y1="1936" y2="1936" x1="1856" />
-        <branch name="COMP_SENS(13:6)">
-            <wire x2="1760" y1="1840" y2="1840" x1="1728" />
+        <branch name="COMP_SENS(10:3)">
+            <wire x2="1744" y1="1840" y2="1840" x1="1728" />
+            <wire x2="1760" y1="1840" y2="1840" x1="1744" />
         </branch>
-        <instance x="1504" y="1872" name="BUF(7:0)" orien="R0" />
         <branch name="SENSITIVITY(7:0)">
-            <wire x2="1504" y1="1840" y2="1840" x1="1472" />
+            <wire x2="1488" y1="1840" y2="1840" x1="1472" />
+            <wire x2="1504" y1="1840" y2="1840" x1="1488" />
         </branch>
         <iomarker fontsize="28" x="1472" y="1840" name="SENSITIVITY(7:0)" orien="R270" />
-        <instance x="1600" y="1872" name="GND1(5:0)" orien="R90" />
-        <instance x="1600" y="1712" name="GND1(15:14)" orien="R90" />
-        <branch name="COMP_SENS(15:14)">
-            <wire x2="1760" y1="1776" y2="1776" x1="1728" />
-        </branch>
-        <branch name="COMP_SENS(5:0)">
+        <instance x="1600" y="1872" name="GND1(2:0)" orien="R90" />
+        <branch name="COMP_SENS(2:0)">
             <wire x2="1760" y1="1936" y2="1936" x1="1728" />
         </branch>
-        <instance x="2944" y="2624" name="XLXI_95" orien="R0" />
         <branch name="sensor_in">
             <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="2896" y="2560" type="branch" />
             <wire x2="2944" y1="2560" y2="2560" x1="2896" />
+        </branch>
+        <branch name="sensor">
+            <wire x2="3216" y1="2496" y2="2496" x1="3168" />
+            <wire x2="3264" y1="2496" y2="2496" x1="3216" />
+        </branch>
+        <instance x="2944" y="2624" name="XLXI_95" orien="R0" />
+        <instance x="2592" y="2528" name="XLXI_98" orien="R0" />
+        <instance x="1504" y="1872" name="BUF(7:0)" orien="R0" />
+        <bustap x2="1760" y1="1760" y2="1760" x1="1856" />
+        <instance x="1600" y="1696" name="GND2(15:11)" orien="R90" />
+        <branch name="COMP_SENS(15:11)">
+            <wire x2="1760" y1="1760" y2="1760" x1="1728" />
+        </branch>
+        <branch name="Q3">
+            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="192" y="1504" type="branch" />
+            <wire x2="240" y1="1504" y2="1504" x1="192" />
+        </branch>
+        <branch name="sensor_in">
+            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="192" y="1568" type="branch" />
+            <wire x2="240" y1="1568" y2="1568" x1="192" />
+        </branch>
+        <instance x="240" y="1696" name="XLXI_100" orien="R0" />
+        <branch name="count_max">
+            <attrtext style="alignment:SOFT-LEFT;fontsize:28;fontname:Arial" attrname="Name" x="2496" y="384" type="branch" />
+            <wire x2="2496" y1="384" y2="384" x1="2464" />
+        </branch>
+        <branch name="count_max">
+            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="224" y="1632" type="branch" />
+            <wire x2="240" y1="1632" y2="1632" x1="224" />
+        </branch>
+        <instance x="496" y="352" name="XLXI_105" orien="R0" />
+        <instance x="192" y="384" name="XLXI_106" orien="R0" />
+        <branch name="count_max">
+            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="160" y="256" type="branch" />
+            <wire x2="192" y1="256" y2="256" x1="160" />
+        </branch>
+        <branch name="sensor_in">
+            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="160" y="320" type="branch" />
+            <wire x2="192" y1="320" y2="320" x1="160" />
         </branch>
     </sheet>
 </drawing>

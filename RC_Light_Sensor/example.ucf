@@ -13,4 +13,3 @@ NET LED(1) LOC = "P25" ;
 NET LED(0) LOC = "P22" ; 
 NET CLK LOC = "P89";
 NET SENSOR LOC = "P91";
-NET reset LOC = "P61" ;

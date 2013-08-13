@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/ktemkin/Documents/Teaching/251/Robot_Kits/Components/RC_Light_Sensor/light_sensor_interface_light_sensor_interface_sch_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="light_sensor_interface_light_sensor_interface_sch_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="20" />
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/w" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">w</obj_property>
+      <obj_property name="ObjectShortName">w</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/x" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">x</obj_property>
+      <obj_property name="ObjectShortName">x</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/y" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">y</obj_property>
+      <obj_property name="ObjectShortName">y</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/z" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">z</obj_property>
+      <obj_property name="ObjectShortName">z</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/sensor" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sensor</obj_property>
+      <obj_property name="ObjectShortName">sensor</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/white" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">white</obj_property>
+      <obj_property name="ObjectShortName">white</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/reflectance_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reflectance_out[3:0]</obj_property>
+      <obj_property name="ObjectShortName">reflectance_out[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/delta_delay" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">delta_delay</obj_property>
+      <obj_property name="ObjectShortName">delta_delay</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/clock_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clock_period</obj_property>
+      <obj_property name="ObjectShortName">clock_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/charge_cycles" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">charge_cycles</obj_property>
+      <obj_property name="ObjectShortName">charge_cycles</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/sensitivity" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sensitivity[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sensitivity[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/UUT/q0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">q0</obj_property>
+      <obj_property name="ObjectShortName">q0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/UUT/q1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">q1</obj_property>
+      <obj_property name="ObjectShortName">q1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/UUT/q2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">q2</obj_property>
+      <obj_property name="ObjectShortName">q2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/UUT/q3" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">q3</obj_property>
+      <obj_property name="ObjectShortName">q3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/UUT/charged" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">charged</obj_property>
+      <obj_property name="ObjectShortName">charged</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/UUT/sensor_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sensor_in</obj_property>
+      <obj_property name="ObjectShortName">sensor_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/light_sensor_interface_light_sensor_interface_sch_tb/UUT/count" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">count[15:0]</obj_property>
+      <obj_property name="ObjectShortName">count[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

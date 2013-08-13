@@ -7,7 +7,6 @@
     </attr>
     <netlist>
         <signal name="clk" />
-        <signal name="XLXN_3" />
         <signal name="SENSOR" />
         <signal name="SWITCHES(7:0)" />
         <signal name="LED(4)" />
@@ -16,6 +15,7 @@
         <signal name="LED(2)" />
         <signal name="LED(3)" />
         <signal name="LED(4:0)" />
+        <signal name="XLXN_4" />
         <port polarity="Input" name="clk" />
         <port polarity="BiDirectional" name="SENSOR" />
         <port polarity="Input" name="SWITCHES(7:0)" />
@@ -56,10 +56,10 @@
             <blockpin signalname="LED(0)" name="Z" />
             <blockpin signalname="SENSOR" name="sensor" />
             <blockpin signalname="LED(4)" name="WHITE" />
-            <blockpin signalname="XLXN_3" name="reset" />
+            <blockpin signalname="XLXN_4" name="reset" />
         </block>
-        <block symbolname="gnd" name="XLXI_2">
-            <blockpin signalname="XLXN_3" name="G" />
+        <block symbolname="gnd" name="XLXI_3">
+            <blockpin signalname="XLXN_4" name="G" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -69,10 +69,6 @@
             <wire x2="1072" y1="400" y2="400" x1="1040" />
         </branch>
         <iomarker fontsize="28" x="1040" y="400" name="clk" orien="R180" />
-        <branch name="XLXN_3">
-            <wire x2="1072" y1="464" y2="464" x1="1040" />
-        </branch>
-        <instance x="912" y="400" name="XLXI_2" orien="R90" />
         <branch name="SENSOR">
             <wire x2="1072" y1="544" y2="544" x1="1040" />
         </branch>
@@ -104,5 +100,9 @@
         <branch name="LED(4:0)">
             <wire x2="1888" y1="368" y2="768" x1="1888" />
         </branch>
+        <branch name="XLXN_4">
+            <wire x2="1072" y1="464" y2="464" x1="1040" />
+        </branch>
+        <instance x="912" y="400" name="XLXI_3" orien="R90" />
     </sheet>
 </drawing>
